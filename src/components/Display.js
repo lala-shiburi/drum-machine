@@ -5,7 +5,7 @@ export default class Display extends Component {
         return (
             <div>
                 <h1 id="display">{this.props.display}</h1>
-                <h1>This works</h1>
+
 
             </div>
         )

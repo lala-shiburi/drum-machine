@@ -10,7 +10,7 @@ const bData = buttonData();
 class App extends Component {
 
     state = {
-        display: "Please say something"
+        display: "Play some drums"
     }
 
 
@@ -31,7 +31,9 @@ class App extends Component {
             button.children[0].play();
             button.classList.toggle("active");
             setTimeout(() => { button.classList.toggle("active") }, 100);
-
+            this.setState({
+                display: button.value
+            })
 
         }
 
@@ -41,9 +43,15 @@ class App extends Component {
     handleClick = (e) => {
         console.log(e.target.id);
         console.log(e.target.classList);
-        e.target.children[0].currentTime = 0;
-        e.target.children[0].play();
-        e.target.classList.toggle("active");
+        const event = e;
+        const eventClass = e.target.classList;
+        event.target.children[0].currentTime = 0;
+        event.target.children[0].play();
+        event.target.classList.toggle("active");
+        this.setState({
+            display: event.target.value
+        })
+        setTimeout(() => { eventClass.toggle("active") }, 100);
     }
 
     render() {
@@ -52,17 +60,20 @@ class App extends Component {
         return (
 
             <div className="App" id="drum-machine">
-                <div className="drum-pad-container">
 
-                    {buttons.map((button, i) => <Button url={bData[i]['url']} onClick={this.handleClick} key={button} value={button} />)}
-
-                </div>
                 <div className="display">
                     <Display display={this.state.display} />
                 </div>
 
+                <div className="drum-pad-container">
 
-                <h2>Start editing to see some magic happen!</h2>
+                    {buttons.map((button, i) => <Button value={bData[i]['id']} url={bData[i]['url']} onClick={this.handleClick} key={button} id={button} />)}
+
+                </div>
+
+
+
+
             </div>
         );
     }

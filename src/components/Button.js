@@ -9,8 +9,8 @@ export default class Button extends Component {
         return (
             <div>
 
-                <button id={this.props.value} onClick={this.props.onClick} className="drum-pad">{this.props.value}
-                    <audio src={this.props.url}></audio>
+                <button id={this.props.id} value={this.props.value} onClick={this.props.onClick} className="drum-pad">{this.props.id}
+                    <audio src={this.props.url} id={this.props.id} className="clip"></audio>
                 </button>
             </div>
         )
