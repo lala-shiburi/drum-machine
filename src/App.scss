@@ -1,0 +1,64 @@
+body {
+    margin: 0;
+}
+
+.App {
+    background: #004966;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    #drum-machine {
+        max-width: 375px;
+        padding-top: 98px;
+        .display {
+            
+            margin: 0 auto;
+            margin-bottom: 65px;
+            width: 313px;
+            height: 75px;
+            background: #EDB340;
+            border-radius: 30px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+
+            h1 {
+                margin: 0;
+                font-family: Roboto;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 45px;
+                line-height: 53px;
+                color: #B13546;
+            }
+        }
+
+        .drum-pad-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            button {
+                width: 100px;
+                height: 100px;
+                margin: 0;
+                font-family: Roboto;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 45px;
+                line-height: 53px;
+                background: #C4C4C4;
+                margin-bottom: 10px;
+                border-radius: 22px;
+                color: #B13546;
+
+                &:active {
+                     background: #EDB340;
+                      color: #B13546;
+                }
+            }
+        }
+    }
+
+    
+}

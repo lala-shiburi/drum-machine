@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
-
+import './App.scss'
 import Display from "./components/Display";
 import Button from "./components/Button";
 import buttonData from './components/buttonData';
@@ -10,7 +9,7 @@ const bData = buttonData();
 class App extends Component {
 
     state = {
-        display: "Play some drums"
+        display: "Play!!"
     }
 
 
@@ -59,21 +58,18 @@ class App extends Component {
 
         return (
 
-            <div className="App" id="drum-machine">
+            <div className="App">
+                <div id="drum-machine">
+                    <div className="display">
+                        <Display display={this.state.display} />
+                    </div>
 
-                <div className="display">
-                    <Display display={this.state.display} />
+                    <div className="drum-pad-container">
+
+                        {buttons.map((button, i) => <Button value={bData[i]['id']} url={bData[i]['url']} onClick={this.handleClick} key={button} id={button} />)}
+
+                    </div>
                 </div>
-
-                <div className="drum-pad-container">
-
-                    {buttons.map((button, i) => <Button value={bData[i]['id']} url={bData[i]['url']} onClick={this.handleClick} key={button} id={button} />)}
-
-                </div>
-
-
-
-
             </div>
         );
     }
